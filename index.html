@@ -7,23 +7,23 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- 🔐 CONTENT SECURITY POLICY -->
+  <!-- 🔐 CONTENT SECURITY POLICY (AJUSTADA PARA YOUTUBE) -->
   <meta http-equiv="Content-Security-Policy"
         content="
           default-src 'self';
-          img-src 'self' data:;
+          frame-src https://www.youtube.com https://www.youtube-nocookie.com;
+          img-src 'self' data: https://i.ytimg.com;
           style-src 'self' 'unsafe-inline';
           font-src 'self';
-          frame-ancestors 'none';
           base-uri 'self';
           form-action 'none';
+          frame-ancestors 'none';
         ">
 
-  <!-- 🔐 PROTEÇÕES ADICIONAIS -->
+  <!-- 🔐 PROTEÇÕES EXTRAS -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="Referrer-Policy" content="no-referrer">
-  <meta name="robots" content="index, follow">
 
   <style>
     body {
@@ -54,16 +54,23 @@
       margin-bottom: 32px;
     }
 
-    .video-placeholder {
-      background: #1a1a1a;
-      height: 280px;
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
       border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #888;
       margin-bottom: 32px;
-      font-size: 16px;
+      background: #000;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
     ul {
@@ -123,17 +130,14 @@
     <h1>⚠️ Os Mistérios Reais Que Tentaram Apagar</h1>
     <h2>Casos verdadeiros censurados que desapareceram da mídia</h2>
 
-   <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;margin-bottom:32px;">
-  <iframe 
-    src="https://www.youtube.com/embed/It9c_hE8vAs"
-    title="Vídeo de apresentação"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-    style="position:absolute;top:0;left:0;width:100%;height:100%;">
-  </iframe>
-
-   </div>
+    <!-- 🎥 VÍDEO YOUTUBE -->
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/It9c_hE8vAs"
+        title="Vídeo de apresentação"
+        allowfullscreen>
+      </iframe>
+    </div>
 
     <ul>
       <li>✔ Histórias reais que simplesmente sumiram</li>
@@ -150,7 +154,7 @@
     </section>
 
     <div class="cta">
-      <a href="https://SEU-CHECKOUT-AQUI.com" rel="noopener noreferrer">
+      <a href="https://SEU-LINK-DE-CHECKOUT-AQUI.com" rel="noopener noreferrer">
         QUERO ACESSAR AGORA
       </a>
       <p>Acesso imediato • Produto digital</p>
